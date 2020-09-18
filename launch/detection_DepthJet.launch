@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="model_config" default=""/>
+  <arg name="model_path" default=""/>
   <arg name="camera_topic" default="/kinect2/qhd/image_depth_rect"/>
   <arg name="camera_info_topic" default="/kinect2/qhd/camera_info"/>
   <arg name="fixed_frame" default="odom"/>

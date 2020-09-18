@@ -65,14 +65,14 @@ class Publisher:
             detection.depth = im_detections[i]["depth"]
             
             if positions is not None:
-                detection.position.header.stamp = header
+                detection.position.header.stamp = header.stamp
                 detection.position.header.frame_id = positions[i]["frame_id"]
                 detection.position.point.x = positions[i]["x"]
                 detection.position.point.y = positions[i]["y"]
                 detection.position.point.z = positions[i]["z"]
                 
             if velocities is not None:
-                detection.velocity.header.stamp = header
+                detection.velocity.header.stamp = header.stamp
                 detection.velocity.header.frame_id = velocities[i]["frame_id"]
                 detection.velocity.point.x = velocities[i]["x"]
                 detection.velocity.point.y = velocities[i]["y"]
