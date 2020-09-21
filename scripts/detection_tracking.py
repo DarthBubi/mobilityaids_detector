@@ -83,8 +83,12 @@ class DetectorNode(object):
         self.tfl = tf.TransformListener()
         self.image_handler = ImageHandler(bridge, 540, 960)
         Server(TrackingParamsConfig, self.reconfigure_callback)
-        self.cla_thresholds = np.loadtxt(os.path.join(
-            model_path, "AP_thresholds.txt"), delimiter=',')
+        thresholds = {}
+        with open(os.path.join(model_path, "AP_thresholds.txt")) as f:
+            for line in f:
+                (key, val) = line.split(',')
+                thresholds[key] = float(val)
+        self.cla_thresholds = thresholds
 
     def reconfigure_callback(self, config, level):
 
